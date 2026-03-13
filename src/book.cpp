@@ -6,7 +6,7 @@ Book::Book(std::string name, std::string author, std::string lang,
            std::string isbn, int pages, double price, int id)
     : Title(name),
       Author(author),
-      Languague(lang),
+      Language(lang),
       ISBN(isbn),
       Print_Lenght(pages),
       Price(price),
@@ -33,7 +33,7 @@ int Book::get_pages() { return Print_Lenght; }
 void Book::print_info() {
   std::cout << "Título: " << Title << "\n";
   std::cout << "Autor: " << Author << "\n";
-  std::cout << "Idioma:  " << Languague << "\n";
+  std::cout << "Idioma:  " << Language << "\n";
   std::cout << "Número de páginas: " << Print_Lenght << "\n";
   std::cout << "ISBN-13: " << ISBN << "\n";
   std::cout << "Preço: " << Price << "\n";

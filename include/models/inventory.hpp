@@ -12,8 +12,14 @@
 class Inventory {
   std::vector<Book> Stock;
 
+  protected:
+
+  void add_book(Book);
+
+  void remove_book(int); // Via ID
+
  public:
-  Inventory(Book);
+  Inventory();
 
   void list_stock();
 };

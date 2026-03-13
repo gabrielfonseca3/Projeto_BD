@@ -6,7 +6,7 @@
 class Book {
   std::string Title;
   std::string Author;
-  std::string Languague;
+  std::string Language;
   std::string ISBN;  // ISBN-13
   int Print_Lenght;
   double Price;
@@ -37,6 +37,8 @@ class Book {
   void print_info();
 
   friend class Manager;
+
+  friend class Inventory;
 };
 
 #endif  // !BOOK_HPP
