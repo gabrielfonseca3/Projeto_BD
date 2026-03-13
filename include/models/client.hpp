@@ -16,9 +16,13 @@ class Client : public User {
  public:
   Client(std::string, std::string, std::string, int, int);
 
-  void add_credit();
+  void add_credit(double);
 
-  void add_cart();
+  // Vai receber o ID da compra
+  // Ex: A compra 30 vai entrar no Cart, quando for consultar a compra do
+  // cliente, ficará mais fácil de achar
+
+  void add_cart(int);
 
   void print_info();
 };

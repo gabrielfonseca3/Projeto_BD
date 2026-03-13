@@ -11,12 +11,14 @@ class Author : public User {
   std::string Bio;  // Sobre o autor, uma mini biografia
 
  protected:
-  void add_book();
+  void add_book(Author*, Book*);
 
-  void edit_bio();
+  void edit_bio(Author*);
 
  public:
   Author(std::string, std::string, std::string, int, int);
+
+  void print_books();
 
   void print_info();
 

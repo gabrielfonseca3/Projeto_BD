@@ -10,10 +10,10 @@
 #include "book.hpp"
 
 class Inventory {
-  std::vector<Book> books;
+  std::vector<Book> Stock;
 
  public:
-  Inventory(std::vector<Book>);
+  Inventory(Book);
 
   void list_stock();
 };
