@@ -18,7 +18,7 @@ int main(int, char**) {
                      sol::lib::table, sol::lib::string);
 
   lua.script_file("scripts/test.lua");
-  if (!"scripts/interface.lua") std::cout << "Erro ao acessar o interface\n";
+  if (!"scripts/test.lua") std::cout << "Erro ao acessar os testes\n";
 
   sol::table client = lua["Client"];
   sol::table book1 = lua["Book1"];
