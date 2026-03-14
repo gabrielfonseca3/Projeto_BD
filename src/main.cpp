@@ -17,7 +17,7 @@ int main(int, char**) {
   lua.open_libraries(sol::lib::base, sol::lib::io, sol::lib::math,
                      sol::lib::table, sol::lib::string);
 
-  lua.script_file("scripts/interface.lua");
+  lua.script_file("scripts/test.lua");
   if (!"scripts/interface.lua") std::cout << "Erro ao acessar o interface\n";
 
   sol::table client = lua["Client"];
