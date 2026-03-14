@@ -15,6 +15,8 @@ class Sale {
  public:
   Sale(std::vector<Book>, Cashier*, Client*, double, int);
 
+  Sale(std::vector<Book>, sol::table);
+
   void print_order();
 
   void print_info();

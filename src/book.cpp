@@ -12,6 +12,15 @@ Book::Book(std::string name, std::string author, std::string lang,
       Price(price),
       ID(id) {}
 
+Book::Book(sol::table b)
+    : Title(b["Title"]),
+      Author(b["Author"]),
+      Language(b["Language"]),
+      ISBN(b["ISBN"]),
+      Print_Lenght(b["Pages"]),
+      Price(b["Price"]),
+      ID(b["ID"]) {}
+
 int Book::get_id() { return ID; }
 
 void Book::set_id(Book* b, int id) { b->ID = id; }

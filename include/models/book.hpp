@@ -1,6 +1,7 @@
 #ifndef BOOK_HPP
 #define BOOK_HPP
 
+#include <sol/sol.hpp>
 #include <string>
 
 class Book {
@@ -21,6 +22,8 @@ class Book {
 
  public:
   Book(std::string, std::string, std::string, std::string, int, double, int);
+
+  Book(sol::table);
 
   void set_name(std::string);
 

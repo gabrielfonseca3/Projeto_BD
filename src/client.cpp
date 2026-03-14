@@ -5,6 +5,7 @@ Client::Client(std::string n, std::string cpf, std::string mail, int age,
     : User(n, cpf, mail, age, id) {
   Credit = 0;
 }
+Client::Client(sol::table c) : User(c) { Credit = 0; }
 
 void Client::add_credit(double c) { Credit += c; }
 

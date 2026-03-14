@@ -4,6 +4,8 @@ Author::Author(std::string n, std::string cpf, std::string mail, int age,
                int id)
     : User(n, cpf, mail, age, id) {}
 
+Author::Author(sol::table a) : User(a) {}
+
 void Author::print_books() {
   for (auto book : Published_Books) {
     book.print_info();

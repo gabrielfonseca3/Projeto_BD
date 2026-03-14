@@ -16,6 +16,8 @@ class Client : public User {
  public:
   Client(std::string, std::string, std::string, int, int);
 
+  Client(sol::table);
+
   void add_credit(double);
 
   // Vai receber o ID da compra

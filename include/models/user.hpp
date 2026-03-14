@@ -5,6 +5,7 @@
 // cliente
 
 #include <iostream>
+#include <sol/sol.hpp>
 #include <string>
 
 class User {
@@ -16,6 +17,8 @@ class User {
 
  public:
   User(std::string, std::string, std::string, int, int);
+
+  User(sol::table);
 
   // Para efeitos de sinmplicidade apenas o nome e idade podem ser editados
 

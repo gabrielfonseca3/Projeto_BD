@@ -12,11 +12,10 @@
 class Inventory {
   std::vector<Book> Stock;
 
-  protected:
-
+ protected:
   void add_book(Book);
 
-  void remove_book(int); // Via ID
+  void remove_book(int);  // Via ID
 
  public:
   Inventory();

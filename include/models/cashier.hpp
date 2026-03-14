@@ -20,6 +20,8 @@ class Cashier : public User {
   Cashier(std::string, std::string, std::string, int, int, Manager*, double,
           std::string);
 
+  Cashier(Manager*, sol::table);
+
   void print_info();
 };
 

@@ -9,6 +9,9 @@ Cashier::Cashier(std::string n, std::string cpf, std::string mail, int age,
       Salary(salary),
       Shift(shift) {}
 
+Cashier::Cashier(Manager* man, sol::table c)
+    : User(c), Sector_Manager(man), Salary(c["Salary"]), Shift(c["Shift"]) {}
+
 void Cashier::set_salary(Cashier* c, double sal) { c->Salary = sal; }
 
 void Cashier::set_shift(Cashier* c, std::string shift) { c->Shift = shift; }

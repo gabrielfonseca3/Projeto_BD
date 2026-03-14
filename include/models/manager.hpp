@@ -10,6 +10,8 @@ class Manager : public User {
  public:
   Manager(std::string, std::string, std::string, int, int, char, double);
 
+  Manager(sol::table);
+
   void print_info();
 };
 

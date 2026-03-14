@@ -18,6 +18,8 @@ class Author : public User {
  public:
   Author(std::string, std::string, std::string, int, int);
 
+  Author(sol::table);
+
   void print_books();
 
   void print_info();
