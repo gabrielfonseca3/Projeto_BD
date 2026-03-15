@@ -1,5 +1,7 @@
 #include "models/manager.hpp"
 
+#include "models/inventory.hpp"
+
 Manager::Manager(std::string n, std::string cpf, std::string mail, int age,
                  int id, char sec, double sal)
     : User(n, cpf, mail, age, id), Sector(sec), Salary(sal) {}

@@ -1,3 +1,4 @@
+#include <exception>
 #include <iostream>
 #include <pqxx/pqxx>
 #include <sol/sol.hpp>
@@ -14,28 +15,37 @@ int main(int, char**) {
   std::cout << "Hello, from Projeto_BD!\n\n\n";
   sol::state lua;
 
-  lua.open_libraries(sol::lib::base, sol::lib::io, sol::lib::math,
-                     sol::lib::table, sol::lib::string);
+  lua.open_libraries(sol::lib::base, sol::lib::package, sol::lib::math,
+                     sol::lib::table, sol::lib::string, sol::lib::os);
 
   lua.script_file("scripts/test.lua");
+  lua.script_file("scripts/ai_script.lua");
   if (!"scripts/test.lua") std::cout << "Erro ao acessar os testes\n";
+  if (!"scripts/ai_script.lua") std::cout << "Erro ao acessar o script de IA\n";
 
   sol::table client = lua["Client"];
-  sol::table book1 = lua["Book1"];
-  sol::table book2 = lua["Book2"];
+
   sol::table manager = lua["Manager"];
   sol::table cashier = lua["Cashier"];
 
+  sol::table books = lua["books"];
   Client c1(client);
-  Book b1(book1), b2(book2);
+
   Manager m1(manager);
   Cashier cash1(&m1, cashier);
 
-  c1.print_info();
-  b1.print_info();
-  b2.print_info();
-  m1.print_info();
-  cash1.print_info();
+  std::cout << "Testando o postgres\n\n";
+  std::string psql = "dbname=livraria_db user=gabriel";
 
+  pqxx::connection postgres(psql);
+
+  Inventory inventory(postgres);
+  /*
+  for (auto pair : books) {
+    sol::table book = pair.second;
+    inventory.add_book(book);
+  }
+
+  */
   return 0;
 }

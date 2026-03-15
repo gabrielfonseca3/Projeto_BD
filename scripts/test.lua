@@ -24,25 +24,3 @@ Cashier = {
   Salary = 800.50,
   Shift = "Manhã"
 }
-
-Book1 = {
-  Title = "Os Testes",
-  Author = "Testinho",
-  Language = "Testanês",
-  ISBN = "978-3-16-148410-0",
-  Pages = 300,
-  Price = 20.99,
-  ID = 0
-
-}
-
-Book2 = {
-  Title = "Os Testes 2",
-  Author = "Testinho",
-  Language = "Testanês",
-  ISBN = "798-2-11-145510-0",
-  Pages = 350,
-  Price = 25.49,
-  ID = 1
-
-}

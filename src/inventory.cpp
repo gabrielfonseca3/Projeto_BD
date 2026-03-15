@@ -6,21 +6,27 @@
 
 #include "models/book.hpp"
 
-Inventory::Inventory() {}
+Inventory::Inventory(pqxx::connection& db) : DB(db) {}
 
-void Inventory::add_book(Book b) { Stock.push_back(b); }
+void Inventory::add_book(sol::table i) {
+  std::string Title = i["Title"];
+  std::string Author = i["Author"];
+  std::string Language = i["Language"];
+  std::string ISBN = i["ISBN"];
+  int Print_Lenght = i["Pages"];
+  double Price = i["Price"];
 
-void Inventory::remove_book(int id) {
-  auto b = std::find_if(Stock.begin(), Stock.end(),
-                        [id](Book b) { return b.get_id() == id; });
-  if (b != Stock.end()) {
-    Stock.erase(b);
-  }
+  pqxx::work txn(DB);
+
+  txn.exec(
+      "INSERT INTO books (title, author, language, isbn, pages, price) VALUES "
+      "($1, $2, $3, $4, $5, $6) ",
+      pqxx::params{Title, Author, Language, ISBN, Print_Lenght, Price});
+
+  txn.commit();
 }
 
-void Inventory::list_stock() {
-  for (auto Book : Stock) {
-    Book.print_info();
-    std::cout << "\n";
-  }
-}
+
+void Inventory::remove_book(int id) {}
+
+void Inventory::list_stock() {}
