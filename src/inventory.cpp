@@ -8,7 +8,7 @@
 
 Inventory::Inventory(pqxx::connection& db) : DB(db) {}
 
-void Inventory::add_book(sol::table i) {
+void Inventory::add_book(pqxx::work workspace, sol::table i) {
   std::string Title = i["Title"];
   std::string Author = i["Author"];
   std::string Language = i["Language"];
@@ -16,16 +16,11 @@ void Inventory::add_book(sol::table i) {
   int Print_Lenght = i["Pages"];
   double Price = i["Price"];
 
-  pqxx::work txn(DB);
-
-  txn.exec(
+  workspace.exec(
       "INSERT INTO books (title, author, language, isbn, pages, price) VALUES "
       "($1, $2, $3, $4, $5, $6) ",
       pqxx::params{Title, Author, Language, ISBN, Print_Lenght, Price});
-
-  txn.commit();
 }
-
 
 void Inventory::remove_book(int id) {}
 

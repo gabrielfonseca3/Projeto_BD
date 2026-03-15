@@ -38,14 +38,10 @@ int main(int, char**) {
   std::string psql = "dbname=livraria_db user=gabriel";
 
   pqxx::connection postgres(psql);
-
+  pqxx::work workspace(postgres);
   Inventory inventory(postgres);
-  /*
-  for (auto pair : books) {
-    sol::table book = pair.second;
-    inventory.add_book(book);
-  }
 
-  */
+  workspace.commit();  // Escreve as mudanças em disco
+
   return 0;
 }
