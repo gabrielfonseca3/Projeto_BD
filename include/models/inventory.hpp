@@ -12,7 +12,7 @@ class Inventory {
  public:
   Inventory(pqxx::connection&);
 
-  void add_book(pqxx::work, sol::table);
+  void add_book(pqxx::work*, sol::table);
 
   void remove_book(int);  // Via ID
 

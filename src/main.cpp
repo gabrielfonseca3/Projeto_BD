@@ -35,12 +35,19 @@ int main(int, char**) {
   Cashier cash1(&m1, cashier);
 
   std::cout << "Testando o postgres\n\n";
-  std::string psql = "dbname=livraria_db user=gabriel";
+  std::string psql = "dbname=livraria_db user=postgres";
 
   pqxx::connection postgres(psql);
   pqxx::work workspace(postgres);
   Inventory inventory(postgres);
 
+  // Loop para popular o estoque com livros
+
+  /*for (auto pair : books) {
+    sol::table book = pair.second;
+    inventory.add_book(&workspace, book);
+  }
+*/
   workspace.commit();  // Escreve as mudanças em disco
 
   return 0;

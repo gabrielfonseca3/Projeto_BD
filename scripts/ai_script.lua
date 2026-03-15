@@ -45,7 +45,7 @@ for i = 1, 2000 do
     Language = language,
     ISBN = isbn,
     Pages = math.random(120, 900),
-    Price = math.random(10, 60) + math.random(),
+    Price = tonumber(string.format("%.2f", math.random(10, 60) + math.random())),
     ID = 0
   }
 end
